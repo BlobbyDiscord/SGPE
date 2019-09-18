@@ -9,7 +9,25 @@ client.on('ready', () => {
 
 });
 
- 
+client.on('message', message => {
+  // If the message is "how to embed"
+  if (message.content === '.join') {
+    // We can create embeds using the MessageEmbed constructor
+    // Read more about all that you can do with the constructor
+    // over at https://discord.js.org/#/docs/main/stable/class/RichEmbed
+    const embed = new RichEmbed()
+      // Set the title of the field
+      .setTitle('SGPE')
+      // Set the color of the embed
+      .setColor(0xFF0000)
+      .addField("**IP** craft.mcpe.dev")
+      .addField("**PORT** 25640")
+      // Set the main content of the embed
+      .setDescription('Total Survival,PvP,Skyblock,Plots');
+    // Send the embed to the same channel as the message
+    message.channel.send(embed);
+  }
+});
 
 
 client.on('message', message => {
